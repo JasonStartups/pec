@@ -277,6 +277,15 @@ function ProjectDetail() {
       </section>
 
       <SiteFooterImport />
+
+      {lightboxOpen && (
+        <Lightbox
+          images={project.gallery}
+          startIndex={active}
+          alt={project.title}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </div>
   );
 }
