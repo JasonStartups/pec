@@ -40,7 +40,8 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const { project } = Route.useLoaderData();
+  const data = Route.useLoaderData() as { project: import("@/lib/projects-data").Project };
+  const { project } = data;
   const [active, setActive] = useState(0);
   const related = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
 
