@@ -3,8 +3,9 @@ import { useState } from "react";
 import { PageShell } from "@/components/page-shell";
 import { SiteNav } from "@/components/site-chrome";
 import { Reveal } from "@/components/motion-primitives";
-import { ArrowRight, ArrowLeft, MapPin, Calendar, Gauge } from "lucide-react";
+import { ArrowRight, ArrowLeft, MapPin, Calendar, Gauge, Expand } from "lucide-react";
 import { getProject, projects } from "@/lib/projects-data";
+import { Lightbox } from "@/components/lightbox";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }): { project: import("@/lib/projects-data").Project } => {
