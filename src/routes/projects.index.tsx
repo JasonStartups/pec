@@ -4,7 +4,7 @@ import { Reveal } from "@/components/motion-primitives";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/lib/projects-data";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projects — Prodigy Exclusive Company" },
