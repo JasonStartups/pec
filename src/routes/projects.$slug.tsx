@@ -7,7 +7,7 @@ import { ArrowRight, ArrowLeft, MapPin, Calendar, Gauge } from "lucide-react";
 import { getProject, projects } from "@/lib/projects-data";
 
 export const Route = createFileRoute("/projects/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { project: import("@/lib/projects-data").Project } => {
     const project = getProject(params.slug);
     if (!project) throw notFound();
     return { project };
