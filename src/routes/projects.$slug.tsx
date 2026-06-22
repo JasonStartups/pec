@@ -4,7 +4,7 @@ import { PageShell } from "@/components/page-shell";
 import { SiteNav } from "@/components/site-chrome";
 import { Reveal } from "@/components/motion-primitives";
 import { ArrowRight, ArrowLeft, MapPin, Calendar, Gauge, Expand } from "lucide-react";
-import { getProject, projects } from "@/lib/projects-data";
+import { getProject, projects, type Project } from "@/lib/projects-data";
 import { Lightbox } from "@/components/lightbox";
 
 export const Route = createFileRoute("/projects/$slug")({
