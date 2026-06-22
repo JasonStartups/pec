@@ -3,8 +3,9 @@ import { useState } from "react";
 import { PageShell } from "@/components/page-shell";
 import { SiteNav } from "@/components/site-chrome";
 import { Reveal } from "@/components/motion-primitives";
-import { ArrowRight, ArrowLeft, MapPin, Calendar, Gauge } from "lucide-react";
+import { ArrowRight, ArrowLeft, MapPin, Calendar, Gauge, Expand } from "lucide-react";
 import { getProject, projects } from "@/lib/projects-data";
+import { Lightbox } from "@/components/lightbox";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }): { project: import("@/lib/projects-data").Project } => {
@@ -43,6 +44,11 @@ function ProjectDetail() {
   const data = Route.useLoaderData() as { project: import("@/lib/projects-data").Project };
   const { project } = data;
   const [active, setActive] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const openLightbox = (i: number) => {
+    setActive(i);
+    setLightboxOpen(true);
+  };
   const related = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
 
   return (
@@ -87,7 +93,12 @@ function ProjectDetail() {
       <section className="py-20 lg:py-24">
         <div className="container-x">
           <Reveal>
-            <div className="rounded-2xl overflow-hidden bg-[var(--surface)]">
+            <button
+              type="button"
+              onClick={() => openLightbox(active)}
+              aria-label="Open image in full screen"
+              className="group relative block w-full rounded-2xl overflow-hidden bg-[var(--surface)] cursor-zoom-in"
+            >
               <div className="aspect-[16/9] overflow-hidden">
                 <img
                   key={active}
@@ -95,16 +106,22 @@ function ProjectDetail() {
                   alt={`${project.title} — view ${active + 1}`}
                   width={1920}
                   height={1080}
-                  className="h-full w-full object-cover animate-in fade-in duration-500"
+                  className="h-full w-full object-cover animate-in fade-in duration-500 transition-transform group-hover:scale-[1.02]"
                 />
               </div>
-            </div>
+              <span
+                className="absolute top-4 right-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold backdrop-blur-md"
+                style={{ backgroundColor: "rgba(7, 12, 24, 0.55)", color: "white" }}
+              >
+                <Expand size={14} /> View full screen
+              </span>
+            </button>
           </Reveal>
           <div className="mt-4 grid grid-cols-4 gap-3 md:gap-4">
             {project.gallery.map((src, i) => (
               <button
                 key={src + i}
-                onClick={() => setActive(i)}
+                onClick={() => openLightbox(i)}
                 aria-label={`View image ${i + 1}`}
                 className={`aspect-[4/3] rounded-lg overflow-hidden transition-all ${active === i ? "ring-2 ring-offset-2" : "opacity-70 hover:opacity-100"}`}
                 style={active === i ? { boxShadow: "0 0 0 2px var(--navy)" } : undefined}
@@ -260,6 +277,15 @@ function ProjectDetail() {
       </section>
 
       <SiteFooterImport />
+
+      {lightboxOpen && (
+        <Lightbox
+          images={project.gallery}
+          startIndex={active}
+          alt={project.title}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </div>
   );
 }
