@@ -8,7 +8,7 @@ import { getProject, projects, type Project } from "@/lib/projects-data";
 import { Lightbox } from "@/components/lightbox";
 
 export const Route = createFileRoute("/projects/$slug")({
-  loader: ({ params }): { project: Project } => {
+  loader: ({ params }) => {
     const project = getProject(params.slug);
     if (!project) throw notFound();
     return { project };
