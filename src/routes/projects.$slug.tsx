@@ -44,6 +44,11 @@ function ProjectDetail() {
   const data = Route.useLoaderData() as { project: import("@/lib/projects-data").Project };
   const { project } = data;
   const [active, setActive] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const openLightbox = (i: number) => {
+    setActive(i);
+    setLightboxOpen(true);
+  };
   const related = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
 
   return (
