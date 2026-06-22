@@ -41,6 +41,7 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
+  const params = Route.useParams();
   const { project } = Route.useLoaderData();
   const [active, setActive] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
