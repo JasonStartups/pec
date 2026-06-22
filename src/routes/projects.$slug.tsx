@@ -130,19 +130,6 @@ function ProjectDetail() {
               </button>
             ))}
           </div>
-          <div className="mt-4 grid grid-cols-4 gap-3 md:gap-4">
-            {project.gallery.map((src, i) => (
-              <button
-                key={src + i}
-                onClick={() => setActive(i)}
-                aria-label={`View image ${i + 1}`}
-                className={`aspect-[4/3] rounded-lg overflow-hidden transition-all ${active === i ? "ring-2 ring-offset-2" : "opacity-70 hover:opacity-100"}`}
-                style={active === i ? { boxShadow: "0 0 0 2px var(--navy)" } : undefined}
-              >
-                <img src={src} alt="" loading="lazy" className="h-full w-full object-cover" />
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 
