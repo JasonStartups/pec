@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
 
-type Props = {
+export type LightboxProps = {
   images: string[];
   startIndex?: number;
   alt?: string;
   onClose: () => void;
 };
 
-export function Lightbox({ images, startIndex = 0, alt = "", onClose }: Props) {
+export function Lightbox({ images, startIndex = 0, alt = "", onClose }: LightboxProps) {
   const [index, setIndex] = useState(startIndex);
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });

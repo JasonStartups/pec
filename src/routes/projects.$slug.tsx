@@ -4,11 +4,11 @@ import { PageShell } from "@/components/page-shell";
 import { SiteNav } from "@/components/site-chrome";
 import { Reveal } from "@/components/motion-primitives";
 import { ArrowRight, ArrowLeft, MapPin, Calendar, Gauge, Expand } from "lucide-react";
-import { getProject, projects } from "@/lib/projects-data";
+import { getProject, projects, type Project } from "@/lib/projects-data";
 import { Lightbox } from "@/components/lightbox";
 
 export const Route = createFileRoute("/projects/$slug")({
-  loader: ({ params }): { project: import("@/lib/projects-data").Project } => {
+  loader: ({ params }) => {
     const project = getProject(params.slug);
     if (!project) throw notFound();
     return { project };
@@ -41,8 +41,8 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const data = Route.useLoaderData() as { project: import("@/lib/projects-data").Project };
-  const { project } = data;
+  const data = Route.useLoaderData();
+  const project: Project = data.project;
   const [active, setActive] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const openLightbox = (i: number) => {
