@@ -1,8 +1,14 @@
+import type { ComponentType } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/page-shell";
 import { Reveal } from "@/components/motion-primitives";
-import { useState } from "react";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import {
+  PEC_EMAIL,
+  PEC_HEAD_OFFICE,
+  PEC_PHONE_DISPLAY,
+  whatsappUrl,
+} from "@/lib/contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,7 +23,6 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
   return (
     <PageShell>
       <PageHero
@@ -34,9 +39,9 @@ function ContactPage() {
       <section className="py-24 lg:py-32">
         <div className="container-x grid lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-5 space-y-8">
-            <ContactItem icon={Mail} label="Email" value="hello@prodigyexclusive.com" />
-            <ContactItem icon={Phone} label="Phone" value="+234 800 000 0000" />
-            <ContactItem icon={MapPin} label="Headquarters" value="Lagos, Nigeria · Nationwide service" />
+            <ContactItem icon={Mail} label="Email" value={PEC_EMAIL} />
+            <ContactItem icon={Phone} label="Phone" value={PEC_PHONE_DISPLAY} href={whatsappUrl()} />
+            <ContactItem icon={MapPin} label="Head Office" value={PEC_HEAD_OFFICE} />
             <div className="rounded-2xl p-8 mt-10" style={{ backgroundColor: "var(--navy)", color: "white" }}>
               <h3 className="font-display font-semibold text-2xl">Office Hours</h3>
               <p className="mt-3 text-white/70">Mon – Fri · 8:00 – 18:00</p>
@@ -49,7 +54,20 @@ function ContactPage() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                setSubmitted(true);
+                const fd = new FormData(e.currentTarget);
+                const message = [
+                  "Hello PEC, I would like to make an enquiry.",
+                  "",
+                  `Name: ${fd.get("name")}`,
+                  `Email: ${fd.get("email")}`,
+                  fd.get("phone") ? `Phone: ${fd.get("phone")}` : null,
+                  fd.get("company") ? `Company: ${fd.get("company")}` : null,
+                  `Service: ${fd.get("service")}`,
+                  fd.get("details") ? `Details: ${fd.get("details")}` : null,
+                ]
+                  .filter(Boolean)
+                  .join("\n");
+                window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
               }}
               className="rounded-3xl border border-border bg-white p-8 lg:p-10 space-y-6"
             >
@@ -61,7 +79,10 @@ function ContactPage() {
               </div>
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Service interest</label>
-                <select className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--leaf)]">
+                <select
+                  name="service"
+                  className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--leaf)]"
+                >
                   <option>Solar Energy Solutions</option>
                   <option>Lithium Battery & Energy Storage</option>
                   <option>Inverter Sales & Installation</option>
@@ -76,6 +97,7 @@ function ContactPage() {
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Project details</label>
                 <textarea
+                  name="details"
                   rows={5}
                   className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--navy)]"
                   placeholder="Tell us about your site, current power needs, and goals."
@@ -86,7 +108,7 @@ function ContactPage() {
                 className="inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold"
                 style={{ backgroundColor: "var(--leaf)", color: "white" }}
               >
-                {submitted ? "Thanks — we'll be in touch" : "Send enquiry"} <ArrowRight size={16} />
+                Send enquiry via WhatsApp <ArrowRight size={16} />
               </button>
             </form>
           </Reveal>
@@ -110,7 +132,17 @@ function Field({ label, name, type = "text", required }: { label: string; name: 
   );
 }
 
-function ContactItem({ icon: Icon, label, value }: { icon: any; label: string; value: string }) {
+function ContactItem({
+  icon: Icon,
+  label,
+  value,
+  href,
+}: {
+  icon: ComponentType<{ size?: number }>;
+  label: string;
+  value: string;
+  href?: string;
+}) {
   return (
     <div className="flex items-start gap-4">
       <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: "var(--surface)", color: "var(--navy)" }}>
@@ -118,7 +150,18 @@ function ContactItem({ icon: Icon, label, value }: { icon: any; label: string; v
       </span>
       <div>
         <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">{label}</div>
-        <div className="mt-1 font-display font-semibold text-lg">{value}</div>
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 block font-display font-semibold text-lg hover:text-[var(--leaf)] transition-colors"
+          >
+            {value}
+          </a>
+        ) : (
+          <div className="mt-1 font-display font-semibold text-lg">{value}</div>
+        )}
       </div>
     </div>
   );

@@ -2,6 +2,18 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MapPin, Phone, Mail, Send } from "lucide-react";
 import pecEmblem from "@/assets/pec-emblem.png";
+import {
+  PEC_EMAIL,
+  PEC_FACEBOOK_URL,
+  PEC_HEAD_OFFICE,
+  PEC_INSTAGRAM_URL,
+  PEC_LINKEDIN_URL,
+  PEC_PHONE_DISPLAY,
+  PEC_TIKTOK_URL,
+  PEC_X_URL,
+  PEC_YOUTUBE_URL,
+  whatsappUrl,
+} from "@/lib/contact";
 
 const links = [
   { to: "/", label: "Home" },
@@ -86,13 +98,15 @@ export function SiteNav({ transparentOnTop = true }: { transparentOnTop?: boolea
         </nav>
 
         <div className="hidden lg:flex items-center">
-          <Link
-            to="/contact"
+          <a
+            href={whatsappUrl("Hello PEC, I would like to get a quote.")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:brightness-110"
             style={{ backgroundColor: "var(--leaf)", color: "white" }}
           >
             Get Quote
-          </Link>
+          </a>
         </div>
 
         <button
@@ -130,14 +144,16 @@ export function SiteNav({ transparentOnTop = true }: { transparentOnTop?: boolea
                 </Link>
               );
             })}
-            <Link
-              to="/contact"
+            <a
+              href={whatsappUrl("Hello PEC, I would like to get a quote.")}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold"
               style={{ backgroundColor: "var(--leaf)", color: "white" }}
             >
               Get Quote
-            </Link>
+            </a>
           </div>
         </div>
       )}
@@ -172,13 +188,22 @@ export function SiteFooter() {
             industries, schools, hospitals, estates, and commercial facilities across Nigeria and beyond.
           </p>
             <div className="mt-8 flex gap-3">
-              {["LinkedIn", "Instagram", "Facebook", "X"].map((s) => (
+              {[
+                { label: "LinkedIn", href: PEC_LINKEDIN_URL },
+                { label: "Instagram", href: PEC_INSTAGRAM_URL },
+                { label: "Facebook", href: PEC_FACEBOOK_URL },
+                { label: "TikTok", href: PEC_TIKTOK_URL },
+                { label: "X", href: PEC_X_URL },
+                { label: "YouTube", href: PEC_YOUTUBE_URL },
+              ].map((s) => (
                 <a
-                  key={s}
-                  href="#"
+                  key={s.label}
+                  href={s.href}
+                  target={s.href === "#" ? undefined : "_blank"}
+                  rel={s.href === "#" ? undefined : "noopener noreferrer"}
                   className="text-xs px-3 py-1.5 rounded-full border border-white/15 hover:border-[var(--leaf)] hover:text-white transition"
                 >
-                  {s}
+                  {s.label}
                 </a>
               ))}
             </div>
@@ -202,15 +227,22 @@ export function SiteFooter() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 shrink-0" style={{ color: "var(--leaf)" }} />
-                <span>Lagos, Nigeria · Nationwide project delivery</span>
+                <span>{PEC_HEAD_OFFICE}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="shrink-0" style={{ color: "var(--leaf)" }} />
-                <span>+234 800 000 0000</span>
+                <a
+                  href={whatsappUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--leaf)] transition-colors"
+                >
+                  {PEC_PHONE_DISPLAY}
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="shrink-0" style={{ color: "var(--leaf)" }} />
-                <span>hello@prodigyexclusive.com</span>
+                <span>{PEC_EMAIL}</span>
               </li>
             </ul>
           </div>

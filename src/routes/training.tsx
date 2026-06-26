@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/page-shell";
 import { Reveal } from "@/components/motion-primitives";
 import trainingImg from "@/assets/training.jpg";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import { whatsappUrl } from "@/lib/contact";
 
 export const Route = createFileRoute("/training")({
   head: () => ({
@@ -76,13 +77,15 @@ function TrainingPage() {
                 </li>
               ))}
             </ul>
-            <Link
-              to="/contact"
+            <a
+              href={whatsappUrl("Hello PEC, I would like to enquire about your solar training programs.")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-10 inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold"
               style={{ backgroundColor: "var(--leaf)", color: "white" }}
             >
               Enquire about training <ArrowRight size={16} />
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>

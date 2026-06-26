@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import { Counter, Reveal, Eyebrow, PulseDot, Tilt, Parallax } from "@/components/motion-primitives";
+import { whatsappUrl } from "@/lib/contact";
 import heroImg from "@/assets/hero-showroom.jpg";
 import batteryImg from "@/assets/battery.jpg";
 import solarHomeImg from "@/assets/solar-home.jpg";
@@ -675,13 +676,17 @@ function ProductGallery() {
                       <span className="text-xs text-foreground/60 font-medium">
                         {p.panels} solar panel{p.panels > 1 ? "s" : ""} included
                       </span>
-                      <Link
-                        to="/contact"
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about the ${p.watt} Portable Solar Generator.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5"
                         style={{ backgroundColor: "var(--leaf)" }}
                       >
                         Enquire <ArrowRight size={12} />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
