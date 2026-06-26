@@ -34,20 +34,27 @@
   --color-navy-deep: var(--navy-deep);
   --color-solar: var(--solar);
   --color-emerald: var(--emerald);
+  --color-leaf: var(--leaf);
+  --color-leaf-bright: var(--leaf-bright);
+  --color-brick: var(--brick);
   --color-surface: var(--surface);
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
 }
 
 :root {
   --radius: 0.75rem;
 
-  /* Brand */
-  --navy: oklch(0.22 0.06 260);          /* #071A33-ish */
-  --navy-deep: oklch(0.16 0.05 260);
-  --solar: oklch(0.82 0.17 85);          /* #F7B500 */
-  --emerald: oklch(0.68 0.17 155);       /* #2DBE60 */
-  --surface: oklch(0.975 0.003 250);     /* #F8F9FA */
+  /* Brand — drawn from PEC showroom palette */
+  --navy: oklch(0.22 0.05 258);          /* deep steel blue (racking) */
+  --navy-deep: oklch(0.16 0.045 258);
+  --solar: oklch(0.82 0.17 85);          /* legacy gold (kept) */
+  --emerald: oklch(0.68 0.17 155);       /* legacy emerald (kept) */
+  --leaf: oklch(0.65 0.19 43);           /* PEC amber-orange (logo + cases) */
+  --leaf-bright: oklch(0.74 0.18 46);    /* lighter amber for hero glows */
+  --brick: oklch(0.52 0.21 30);          /* deeper burnt-orange accent */
+  --surface: oklch(0.975 0.005 85);      /* warm off-white */
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.18 0.02 260);    /* #1A1A1A */
@@ -86,8 +93,9 @@
   }
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.01em;
     font-weight: 700;
+    font-variant-ligatures: common-ligatures;
   }
 }
 
@@ -118,4 +126,141 @@
 
 @utility float-slow {
   animation: floatY 6s ease-in-out infinite;
+}
+
+/* Diagonal pinstripe texture used on dark "impact" bands */
+@utility pinstripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in oklab, white 4%, transparent) 0px,
+    color-mix(in oklab, white 4%, transparent) 1px,
+    transparent 1px,
+    transparent 11px
+  );
+}
+
+/* Faint diagonal arrow band used on light transition sections */
+@utility diag-arrows {
+  background-image: repeating-linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--navy) 7%, transparent) 0px,
+    color-mix(in oklab, var(--navy) 7%, transparent) 2px,
+    transparent 2px,
+    transparent 38px
+  );
+}
+
+/* Pulsing concentric rings for map location markers */
+@keyframes pulseRing {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@utility pulse-ring {
+  animation: pulseRing 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes dotGlow {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--leaf-bright) 60%, transparent); }
+  50% { box-shadow: 0 0 14px 2px color-mix(in oklab, var(--leaf-bright) 70%, transparent); }
+}
+
+@utility dot-glow {
+  animation: dotGlow 2.4s ease-in-out infinite;
+}
+
+/* Eyebrow connector: short rule + diamond before a label */
+@utility lead-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@keyframes underlineGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ── Eyebrow connector animations ── */
+
+/* 1. Line draws left → right */
+@keyframes connectorLineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* 2. Diamond pops in */
+@keyframes connectorDiamondIn {
+  from { opacity: 0; transform: rotate(27deg) scale(0.4); }
+  to   { opacity: 1; transform: rotate(27deg) scale(1); }
+}
+
+/* 3. Diamond spins forever (starts where the entrance left off) */
+@keyframes connectorDiamondSpin {
+  from { transform: rotate(27deg);   }
+  to   { transform: rotate(387deg);  }
+}
+
+/* 4. Label slides in from the left */
+@keyframes connectorLabelReveal {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@layer components {
+  .connector-label-reveal {
+    animation: connectorLabelReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both;
+  }
+}
+
+/* Layered shadow that reads as physical depth */
+@utility card-3d {
+  box-shadow:
+    0 2px 4px -2px color-mix(in oklab, var(--navy) 18%, transparent),
+    0 12px 24px -10px color-mix(in oklab, var(--navy) 26%, transparent),
+    0 30px 60px -24px color-mix(in oklab, var(--navy) 34%, transparent);
+}
+
+@utility card-3d-strong {
+  box-shadow:
+    0 4px 8px -3px color-mix(in oklab, black 30%, transparent),
+    0 20px 40px -12px color-mix(in oklab, black 40%, transparent),
+    0 50px 90px -30px color-mix(in oklab, black 45%, transparent);
+}
+
+/* Elements that should float toward the viewer inside a tilted card */
+@utility pop-z {
+  transform: translateZ(45px);
+}
+@utility pop-z-sm {
+  transform: translateZ(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-ring,
+  .dot-glow,
+  .float-slow,
+  .connector-label-reveal {
+    animation: none !important;
+  }
+  .connector-label-reveal {
+    opacity: 1;
+    transform: none;
+  }
+  /* Show connector in final state without animation */
+  [style*="connectorLineGrow"],
+  [style*="connectorDiamondIn"],
+  [style*="connectorDiamondSpin"] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: scaleX(1) !important;
+  }
+}
+
+@utility scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
