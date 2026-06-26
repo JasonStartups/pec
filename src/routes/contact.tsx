@@ -21,9 +21,15 @@ function ContactPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Contact"
-        title={<>Let's engineer your<br />next system.</>}
-        intro="Tell us about your project. Our engineers respond within one business day with next steps and a tailored proposal."
+        eyebrow="Contact Us"
+        title={
+          <>
+            Prodigy Exclusive
+            <br />
+            Company.
+          </>
+        }
+        intro="Driven by Innovation, Defined by Excellence. Tell us about your project and our team will respond with next steps and a tailored proposal."
       />
       <section className="py-24 lg:py-32">
         <div className="container-x grid lg:grid-cols-12 gap-12">
@@ -55,14 +61,16 @@ function ContactPage() {
               </div>
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Service interest</label>
-                <select className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--navy)]">
+                <select className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--leaf)]">
                   <option>Solar Energy Solutions</option>
-                  <option>Lithium Battery Storage</option>
-                  <option>Inverters</option>
+                  <option>Lithium Battery & Energy Storage</option>
+                  <option>Inverter Sales & Installation</option>
                   <option>Portable Solar Generators</option>
-                  <option>CCTV & Security</option>
-                  <option>Smart Home Automation</option>
-                  <option>Training Academy</option>
+                  <option>Solar Gadgets & Appliances</option>
+                  <option>Solar System Maintenance</option>
+                  <option>CCTV & Security Solutions</option>
+                  <option>Smart Home & Automation</option>
+                  <option>Solar Training & Education</option>
                 </select>
               </div>
               <div>
@@ -76,7 +84,7 @@ function ContactPage() {
               <button
                 type="submit"
                 className="inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold"
-                style={{ backgroundColor: "var(--solar)", color: "var(--navy)" }}
+                style={{ backgroundColor: "var(--leaf)", color: "white" }}
               >
                 {submitted ? "Thanks — we'll be in touch" : "Send enquiry"} <ArrowRight size={16} />
               </button>
