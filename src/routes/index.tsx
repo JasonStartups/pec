@@ -30,6 +30,55 @@ import gen2800 from "@/assets/gen-2800w.jpg";
 import gen4000 from "@/assets/gen-4000w.jpg";
 import gen6000 from "@/assets/gen-6000w.jpg";
 import gen8000 from "@/assets/gen-8000w.jpg";
+import freezerPkg1 from "@/assets/solar-freezer-pkg1.png";
+import freezerPkg2 from "@/assets/solar-freezer-pkg2.png";
+import freezerPkg3 from "@/assets/solar-freezer-pkg3.png";
+import fanDesktopKit from "@/assets/solar-fan-desktop-kit.png";
+import fanDesktopPec from "@/assets/solar-fan-desktop-pec.png";
+import fanWallMount from "@/assets/solar-fan-wall-mount.png";
+import fanWallPec from "@/assets/solar-fan-wall-pec.png";
+import fanStandingKit from "@/assets/solar-fan-standing-kit.png";
+import fanPedestalIntegrated from "@/assets/solar-fan-pedestal-integrated.png";
+import lightBalcony from "@/assets/solar-light-balcony.png";
+import lightCeilingKit from "@/assets/solar-light-ceiling-kit.png";
+import lightOutdoorCeiling from "@/assets/solar-light-outdoor-ceiling.png";
+import lightRemoteKit from "@/assets/solar-light-remote-kit.png";
+import installBatteryRoom from "@/assets/solar-install-battery-room.png";
+import installCarpark from "@/assets/solar-install-carpark.png";
+import installCarport from "@/assets/solar-install-carport.png";
+import installCoastalRoof from "@/assets/solar-install-coastal-roof.png";
+import installCommercialRack from "@/assets/solar-install-commercial-rack.png";
+import installDeyeSystem from "@/assets/solar-install-deye-system.png";
+import installInverterBank from "@/assets/solar-install-inverter-bank.png";
+import installMustSystem from "@/assets/solar-install-must-system.png";
+import installRooftopBattery from "@/assets/solar-install-rooftop-battery.png";
+import installRooftopCrew from "@/assets/solar-install-rooftop-crew.png";
+import installSlbattSystem from "@/assets/solar-install-slbatt-system.png";
+import installTechnicianRoof from "@/assets/solar-install-technician-roof.png";
+import installWallSystem from "@/assets/solar-install-wall-system.png";
+import automationSmartHome from "@/assets/home-automation-smart-home.png";
+import automationDoorLock from "@/assets/home-automation-smart-door-lock.png";
+import automationIotControl from "@/assets/home-automation-iot-control.png";
+import automationSecurityControl from "@/assets/home-automation-security-control.png";
+import automationSmartLiving from "@/assets/home-automation-smart-living.png";
+import doorLockSixWay from "@/assets/smart-door-lock-six-way.png";
+import doorLockBluetooth from "@/assets/smart-door-lock-bluetooth.png";
+import doorLockCamera from "@/assets/smart-door-lock-camera.png";
+import accessControlSmartSecurity from "@/assets/access-control-smart-security.png";
+import accessControlRfidCard from "@/assets/access-control-rfid-card.png";
+import cctvResidentialEntry from "@/assets/cctv-camera-residential-entry.png";
+import cctvEstateSecurity from "@/assets/cctv-camera-estate-security.png";
+import cctvBulletHome from "@/assets/cctv-camera-bullet-home.png";
+import cctvOutdoorHd from "@/assets/cctv-camera-outdoor-hd.png";
+import gateRemoteEntry from "@/assets/gate-automation-remote-entry.png";
+import gateSlidingMotor from "@/assets/gate-automation-sliding-motor.png";
+import gateResidential from "@/assets/gate-automation-residential-gate.png";
+import gateSmartGate from "@/assets/gate-automation-smart-gate.png";
+import fenceRazorWire from "@/assets/electric-fence-razor-wire.png";
+import fenceBoundaryLine from "@/assets/electric-fence-boundary-line.png";
+import fencePerimeterWall from "@/assets/electric-fence-perimeter-wall.png";
+import fenceSecurityAlert from "@/assets/electric-fence-security-alert.png";
+import fencePostSystem from "@/assets/electric-fence-post-system.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -600,7 +649,7 @@ function FeaturedServices() {
 
 /* ---------------- PRODUCT GALLERY ---------------- */
 function ProductGallery() {
-  const products = [
+  const generators = [
     { watt: "800W",  img: gen800,  panels: 1, desc: "Ideal for home essentials, small offices, and light-duty backup." },
     { watt: "1200W", img: gen1200, panels: 2, desc: "Powers lights, fans, TVs, and basic appliances with ease." },
     { watt: "1500W", img: gen1500, panels: 3, desc: "Reliable backup for medium households and small businesses." },
@@ -610,26 +659,480 @@ function ProductGallery() {
     { watt: "8000W", img: gen8000, panels: 8, desc: "Maximum capacity for large commercial and industrial loads." },
   ];
 
+  const solarInstallations = [
+    {
+      name: "Hybrid Inverter & Battery Bank",
+      img: installInverterBank,
+      desc: "Wall-mounted inverter system with lithium storage, distribution panels, and stabilizer support.",
+      tags: ["Hybrid inverter", "Lithium storage", "Power room"],
+    },
+    {
+      name: "Residential Solar Carport",
+      img: installCarport,
+      desc: "Carport-mounted solar array designed to generate clean power while shading parking areas.",
+      tags: ["Carport", "Residential", "PV array"],
+    },
+    {
+      name: "Compact Wall Battery System",
+      img: installWallSystem,
+      desc: "Neat inverter and battery installation for homes and small offices with limited wall space.",
+      tags: ["Wall mount", "Battery backup", "Compact"],
+    },
+    {
+      name: "Commercial Solar Carpark",
+      img: installCarpark,
+      desc: "Large-scale parking canopy solar installation for estates, campuses, and commercial facilities.",
+      tags: ["Commercial", "Carpark", "Large scale"],
+    },
+    {
+      name: "Rooftop Solar Installation",
+      img: installRooftopCrew,
+      desc: "Professional rooftop panel installation by trained technicians with proper racking and alignment.",
+      tags: ["Rooftop", "Installation crew", "PV panels"],
+    },
+    {
+      name: "Roof Mounting & Commissioning",
+      img: installTechnicianRoof,
+      desc: "Solar panel fastening, cabling, and commissioning for pitched and metal roofing systems.",
+      tags: ["Roof mount", "Commissioning", "Safety"],
+    },
+    {
+      name: "Rooftop + Battery Backup",
+      img: installRooftopBattery,
+      desc: "Complete solar roof array paired with inverter and battery storage for reliable backup power.",
+      tags: ["Panels", "Inverter", "Battery"],
+    },
+    {
+      name: "Deye Hybrid System",
+      img: installDeyeSystem,
+      desc: "Deye inverter and battery storage configuration for homes, offices, and light commercial loads.",
+      tags: ["Deye", "Hybrid", "Storage"],
+    },
+    {
+      name: "Coastal Rooftop Installation",
+      img: installCoastalRoof,
+      desc: "Rooftop solar installation with technician handling, rail mounting, and panel positioning.",
+      tags: ["Rooftop", "Technicians", "Solar array"],
+    },
+    {
+      name: "Battery Storage Room",
+      img: installBatteryRoom,
+      desc: "Multi-battery storage installation with inverter controls and protected power distribution.",
+      tags: ["Battery room", "Storage", "Backup"],
+    },
+    {
+      name: "MUST Inverter System",
+      img: installMustSystem,
+      desc: "MUST inverter and wall battery system for clean, dependable backup power.",
+      tags: ["MUST", "Inverter", "Wall battery"],
+    },
+    {
+      name: "SLBATT Energy Storage",
+      img: installSlbattSystem,
+      desc: "Paired inverter and SLBATT battery banks for heavier residential or business loads.",
+      tags: ["SLBATT", "Dual inverter", "Lithium"],
+    },
+    {
+      name: "Commercial Battery Rack",
+      img: installCommercialRack,
+      desc: "Rack-mounted battery storage and inverter infrastructure for larger commercial energy systems.",
+      tags: ["Commercial", "Battery rack", "Deye"],
+    },
+  ];
+
+  const freezerPackages = [
+    {
+      id: "pkg-1",
+      label: "Package 1",
+      capacity: "259L",
+      img: freezerPkg1,
+      generator: "2800W",
+      desc: "Entry bundle for small shops — deep freeze stock with zero fuel cost.",
+      includes: [
+        "259L Haier Thermocool Deep Freezer",
+        "PEC 2800W Solar Generator",
+        "2 × 610W Solar Panels",
+      ],
+    },
+    {
+      id: "pkg-2",
+      label: "Package 2",
+      capacity: "319L",
+      img: freezerPkg2,
+      generator: "2800W",
+      desc: "Mid-size capacity for growing businesses with higher daily turnover.",
+      includes: [
+        "319L Haier Thermocool Deep Freezer",
+        "PEC 2800W Solar Generator",
+        "3 × 610W Solar Panels",
+      ],
+    },
+    {
+      id: "pkg-3",
+      label: "Package 3",
+      capacity: "519L",
+      img: freezerPkg3,
+      generator: "4000W",
+      desc: "Maximum freezer volume paired with 4000W output for busy operations.",
+      includes: [
+        "519L Haier Thermocool Deep Freezer",
+        "PEC 4000W Solar Generator",
+        "4 × 610W Solar Panels",
+      ],
+    },
+  ];
+
+  const solarFans = [
+    {
+      name: "Desktop Solar Fan Kit",
+      img: fanDesktopKit,
+      desc: "Portable tabletop solar fan with large-capacity battery, light, USB charging, and multiple charging methods.",
+      tags: ["Desktop", "USB charging", "Solar panel"],
+    },
+    {
+      name: "PEC Desktop Solar Fan",
+      img: fanDesktopPec,
+      desc: "Branded PEC tabletop fan bundle with solar panel, light attachment, rechargeable battery, and clean-energy performance.",
+      tags: ["Desktop", "Rechargeable", "LED light"],
+    },
+    {
+      name: "Wall-Mounted Solar Fan",
+      img: fanWallMount,
+      desc: "Space-saving wall fan for homes and shops with rechargeable power and convenient wall placement.",
+      tags: ["Wall mount", "Rechargeable", "Home use"],
+    },
+    {
+      name: "PEC Wall Solar Fan",
+      img: fanWallPec,
+      desc: "Premium wall-mounted PEC solar fan with Bluetooth music, DC copper-core motor, and flexible charging options.",
+      tags: ["Wall mount", "Bluetooth", "DC motor"],
+    },
+    {
+      name: "PEC Standing Solar Fan Kit",
+      img: fanStandingKit,
+      desc: "Standing PEC solar fan available in black or white, supplied with matching solar panel, LED light, and touch controls.",
+      tags: ["Standing", "Black or white", "Solar panel"],
+    },
+    {
+      name: "PEC Pedestal Solar Fan",
+      img: fanPedestalIntegrated,
+      desc: "Height-adjustable pedestal fan with integrated solar charging base, digital display, and AC/DC dual power.",
+      tags: ["Pedestal", "Integrated solar", "Digital display"],
+    },
+  ];
+
+  const solarLights = [
+    {
+      name: "Solar Ceiling Light Kit",
+      img: lightCeilingKit,
+      desc: "Bright ceiling light with matching solar panel and remote control for indoor or semi-outdoor spaces.",
+      tags: ["Ceiling light", "Remote", "Solar panel"],
+    },
+    {
+      name: "Outdoor Solar Ceiling Light",
+      img: lightOutdoorCeiling,
+      desc: "Weather-ready ceiling light setup for verandas, balconies, storefronts, and outdoor business areas.",
+      tags: ["Outdoor", "Ceiling", "Remote"],
+    },
+    {
+      name: "Remote Solar Light Kit",
+      img: lightRemoteKit,
+      desc: "Complete solar light kit with panel, mounting cable, remote control, and selectable brightness modes.",
+      tags: ["Remote control", "Half/full brightness", "Solar panel"],
+    },
+    {
+      name: "Balcony Solar Light",
+      img: lightBalcony,
+      desc: "Balcony and exterior wall lighting designed for normal charging even on cloudy days.",
+      tags: ["Balcony", "Cloudy-day charging", "Exterior"],
+    },
+  ];
+
+  const homeAutomation = [
+    {
+      name: "Smart Home Automation",
+      img: automationSmartHome,
+      desc: "Integrated smart home control for lighting, comfort, voice commands, security cameras, and everyday convenience.",
+      tags: ["Smart home", "Voice control", "Security"],
+    },
+    {
+      name: "Whole-Home IoT Control",
+      img: automationIotControl,
+      desc: "Connected control for lighting, sensors, devices, and home scenes from mobile apps and central automation panels.",
+      tags: ["IoT devices", "Mobile app", "Scene control"],
+    },
+    {
+      name: "Smart Security Controls",
+      img: automationSecurityControl,
+      desc: "Automated security, camera, temperature, lighting, and media controls designed for safer modern living.",
+      tags: ["Security", "Lighting", "Climate"],
+    },
+    {
+      name: "Smart Living Systems",
+      img: automationSmartLiving,
+      desc: "Modern smart living setup with automated lights, voice control, robot vacuum, air purifier, and smart speaker integration.",
+      tags: ["Smart lights", "Voice control", "Appliances"],
+    },
+  ];
+
+  const smartDoorLocks = [
+    {
+      name: "Six-Way Smart Door Lock",
+      img: doorLockSixWay,
+      desc: "Premium digital lock with fingerprint, mobile app, PIN code, RFID card, temporary OTP, and backup physical key access.",
+      tags: ["Fingerprint", "OTP", "RFID card"],
+    },
+    {
+      name: "Bluetooth Smart Door Lock",
+      img: doorLockBluetooth,
+      desc: "Modern smart door lock with Bluetooth control, password unlock, fingerprint access, IC card entry, and key backup.",
+      tags: ["Bluetooth", "Password", "IC card"],
+    },
+    {
+      name: "Camera Smart Door Lock",
+      img: doorLockCamera,
+      desc: "Smart access lock with integrated camera support, fingerprint recognition, keypad entry, and secure door monitoring.",
+      tags: ["Camera", "Fingerprint", "Monitoring"],
+    },
+    {
+      name: "Fingerprint Smart Door Lock",
+      img: automationDoorLock,
+      desc: "Secure fingerprint door lock with keypad, app access, card support, and physical key backup for homes and offices.",
+      tags: ["Fingerprint", "App access", "Keypad"],
+    },
+  ];
+
+  const accessControl = [
+    {
+      name: "Integrated Access Control",
+      img: accessControlSmartSecurity,
+      desc: "Connected access system combining smart locks, cameras, sensors, and mobile control for secure property management.",
+      tags: ["Mobile control", "CCTV linked", "Smart access"],
+    },
+    {
+      name: "RFID Card Access System",
+      img: accessControlRfidCard,
+      desc: "Card-based access control for hotels, offices, apartments, and restricted rooms with simple, reliable entry management.",
+      tags: ["RFID card", "Hotel access", "Office security"],
+    },
+  ];
+
+  const cctvInstallations = [
+    {
+      name: "Residential CCTV Installation",
+      img: cctvResidentialEntry,
+      desc: "Outdoor CCTV setup for residential entrances, gates, and compound monitoring with smart access integration.",
+      tags: ["Residential", "Entry monitoring", "Outdoor camera"],
+    },
+    {
+      name: "Estate Security Camera",
+      img: cctvEstateSecurity,
+      desc: "Perimeter CCTV installation for estates, driveways, and access roads with clear day and night visibility.",
+      tags: ["Estate", "Perimeter", "Monitoring"],
+    },
+    {
+      name: "Bullet CCTV Camera",
+      img: cctvBulletHome,
+      desc: "Wall-mounted bullet camera installation for homes, offices, and storefronts that need visible deterrent security.",
+      tags: ["Bullet camera", "Wall mount", "Deterrent"],
+    },
+    {
+      name: "Outdoor HD CCTV System",
+      img: cctvOutdoorHd,
+      desc: "High-definition outdoor camera setup for building frontage, gardens, parking areas, and property surveillance.",
+      tags: ["HD camera", "Outdoor", "Surveillance"],
+    },
+  ];
+
+  const gateAutomation = [
+    {
+      name: "Remote Gate Entry System",
+      img: gateRemoteEntry,
+      desc: "Remote-controlled gate automation for secure, convenient vehicle access in homes, estates, and offices.",
+      tags: ["Remote access", "Vehicle entry", "Security"],
+    },
+    {
+      name: "Sliding Gate Motor",
+      img: gateSlidingMotor,
+      desc: "Motorized sliding gate setup with smooth rail movement, reliable control, and neat residential installation.",
+      tags: ["Sliding gate", "Gate motor", "Residential"],
+    },
+    {
+      name: "Residential Smart Gate",
+      img: gateResidential,
+      desc: "Automated residential gate solution with remote control access and secure perimeter convenience.",
+      tags: ["Residential", "Remote control", "Perimeter"],
+    },
+    {
+      name: "Smart Gate Automation",
+      img: gateSmartGate,
+      desc: "Modern gate automation with app-ready control, camera support, and secure entry for stylish homes.",
+      tags: ["App control", "Smart gate", "CCTV ready"],
+    },
+  ];
+
+  const electricFenceAutomation = [
+    {
+      name: "Razor Wire Electric Fence",
+      img: fenceRazorWire,
+      desc: "High-security electric fence installation with razor wire support for stronger perimeter protection.",
+      tags: ["Razor wire", "Perimeter", "High security"],
+    },
+    {
+      name: "Boundary Electric Fence",
+      img: fenceBoundaryLine,
+      desc: "Multi-line electric fence setup for boundary walls, open perimeters, estates, and commercial premises.",
+      tags: ["Boundary wall", "Multi-line", "Estate security"],
+    },
+    {
+      name: "Perimeter Wall Fence System",
+      img: fencePerimeterWall,
+      desc: "Clean wall-mounted electric fence installation with insulated posts and wide-area perimeter coverage.",
+      tags: ["Wall mounted", "Insulated posts", "Coverage"],
+    },
+    {
+      name: "Electric Fence Alarm System",
+      img: fenceSecurityAlert,
+      desc: "Active electric fence solution with warning signage, deterrent protection, and alarm-ready security support.",
+      tags: ["Alarm ready", "Deterrent", "Warning signs"],
+    },
+    {
+      name: "Electric Fence Post System",
+      img: fencePostSystem,
+      desc: "Durable post-and-line electric fence structure for neat installation on residential and business walls.",
+      tags: ["Post system", "Durable", "Security line"],
+    },
+  ];
+
+  const bundleBenefits = [
+    "100% clean energy",
+    "Reliable & durable",
+    "Low maintenance",
+    "Maximum savings",
+    "Zero fuel cost",
+    "Built for business",
+  ];
+
   return (
     <section className="py-16 lg:py-24 overflow-hidden" style={{ background: "var(--navy)" }}>
       <div className="container-x mb-10 sm:mb-14">
         <Eyebrow color="oklch(1 0 0 / 0.7)">Our Products</Eyebrow>
         <Reveal>
           <h2 className="mt-4 font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-white">
-            PEC Portable Solar Generators
+            Solar, automation products & business bundles
           </h2>
         </Reveal>
         <Reveal delay={120}>
           <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/70 leading-relaxed">
-            Engineered and manufactured in-house — available in 7 capacities from 800W to 8000W.
-            Each unit ships with matching solar panels and is ready to power homes, offices, and outdoor events.
+            Complete solar installation systems, portable generators, solar fans, solar lights,
+            home automation, smart door locks, access control, CCTV camera installation, gate automation, electric fence automation, and Haier Thermocool freezer bundles for homes, businesses, and commercial facilities.
           </p>
         </Reveal>
       </div>
 
-      {/* Scrollable card rail */}
+      {/* Solar installation */}
+      <div className="container-x mb-6 sm:mb-8">
+        <Reveal>
+          <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+            Solar Installation Systems
+          </h3>
+          <p className="mt-2 text-sm sm:text-base text-white/60 max-w-2xl">
+            Hybrid inverters, lithium batteries, rooftop PV arrays, carport solar structures,
+            and commercial-scale energy storage installations.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative mb-16 sm:mb-20 lg:mb-24">
+        <div
+          className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }}
+        />
+        <div
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }}
+        />
+
+        <div
+          className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}
+        >
+          {solarInstallations.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} by Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Installation
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Solar Energy System
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Portable solar generators */}
+      <div className="container-x mb-6 sm:mb-8">
+        <Reveal>
+          <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+            PEC Portable Solar Generators
+          </h3>
+          <p className="mt-2 text-sm sm:text-base text-white/60 max-w-xl">
+            Seven capacities, each with matching solar panels — ready for homes, offices, and events.
+          </p>
+        </Reveal>
+      </div>
+
       <div className="relative">
-        {/* Fade masks at edges */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
           style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
@@ -637,14 +1140,13 @@ function ProductGallery() {
 
         <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
           style={{ scrollbarWidth: "none" }}>
-          {products.map((p, i) => (
+          {generators.map((p, i) => (
             <Reveal key={p.watt} delay={i * 60} className="shrink-0">
               <Tilt className="h-full" max={6}>
                 <div
                   className="card-3d group relative flex flex-col w-[260px] sm:w-[280px] rounded-2xl overflow-hidden bg-white shadow-xl snap-start"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  {/* Product image */}
                   <div className="relative overflow-hidden" style={{ background: "oklch(0.97 0.005 85)" }}>
                     <img
                       src={p.img}
@@ -654,7 +1156,6 @@ function ProductGallery() {
                       loading="lazy"
                       className="w-full aspect-square object-contain p-4 transition-transform duration-700 group-hover:scale-105"
                     />
-                    {/* Wattage badge */}
                     <span
                       className="absolute top-3 right-3 rounded-full px-3 py-1 text-[11px] font-bold tracking-widest uppercase text-white"
                       style={{ backgroundColor: "var(--leaf)" }}
@@ -663,14 +1164,13 @@ function ProductGallery() {
                     </span>
                   </div>
 
-                  {/* Card body */}
                   <div className="flex flex-col flex-1 p-5" style={{ transform: "translateZ(20px)" }}>
                     <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
                       Solar Generator
                     </div>
-                    <h3 className="font-display font-bold text-xl text-[var(--navy)]">
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
                       {p.watt} <span className="text-base font-semibold text-muted-foreground">capacity</span>
-                    </h3>
+                    </h4>
                     <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{p.desc}</p>
                     <div className="mt-4 flex items-center justify-between">
                       <span className="text-xs text-foreground/60 font-medium">
@@ -696,14 +1196,816 @@ function ProductGallery() {
         </div>
       </div>
 
-      {/* View all CTA */}
-      <div className="container-x mt-8 text-center">
+      {/* Solar fans */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            Solar Gadgets & Appliances
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Solar fans for homes, shops, and offices
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            Rechargeable solar fan options with matching panels, large-capacity batteries, USB charging,
+            remote control, Bluetooth music, and clean-energy cooling.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {solarFans.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} from Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Solar Fan
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Rechargeable Cooling
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about the ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Solar lights */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            Solar Lighting
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Solar lights for homes and business premises
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            Ceiling, balcony, and exterior solar light kits with panels, remote controls,
+            selectable brightness, and reliable cloudy-day charging.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {solarLights.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} from Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Solar Light
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Solar Lighting
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about the ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Home automation */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            Home Automation
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Smart living, security, and automation systems
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            Smart locks, connected security, lighting control, voice assistants, appliance automation,
+            and whole-home control systems for modern homes and commercial spaces.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {homeAutomation.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} from Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Smart Home
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Automation & Security
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Smart door locks */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            Smart Door Locks
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Digital access control for modern doors
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            Fingerprint locks, keypad entry, mobile app access, RFID cards, Bluetooth control,
+            temporary OTP, and backup key access for homes, apartments, offices, and short-let properties.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {smartDoorLocks.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} from Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Door Lock
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Smart Access
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Access control */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            Access Control
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Controlled entry for homes, hotels, and offices
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            RFID card access, mobile control, smart locks, camera-linked entry, and managed access systems
+            for private properties, hotels, apartments, offices, and commercial facilities.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {accessControl.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} from Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Access Control
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Entry Management
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* CCTV camera installation */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            CCTV Camera Installation
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Smart surveillance for homes and facilities
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            Outdoor and indoor CCTV camera installation, perimeter surveillance, entry monitoring,
+            remote viewing, and security coverage for homes, estates, offices, schools, and businesses.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {cctvInstallations.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} from Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      CCTV
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Surveillance
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Gate automation */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            Gate Automation
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Automated gates for secure, convenient access
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            Remote-controlled and smart gate automation systems for homes, estates, offices,
+            and commercial premises with smooth access control and stronger perimeter security.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {gateAutomation.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} from Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Smart Gate
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Access Control
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Electric fence automation */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            Electric Fence Automation
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Electric fencing for perimeter protection
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            Electric fence systems, insulated posts, warning signage, perimeter wiring, and alarm-ready
+            security installations for homes, estates, schools, warehouses, and commercial facilities.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {electricFenceAutomation.map((p, i) => (
+            <Reveal key={p.name} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.name} from Prodigy Exclusive Company`}
+                      width={720}
+                      height={720}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Electric Fence
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Perimeter Security
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.name}
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[var(--surface)] px-2.5 py-1 text-[11px] font-medium text-[var(--navy)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about ${p.name}.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Solar freezer bundles */}
+      <div className="container-x mt-16 sm:mt-20 lg:mt-24 pt-12 sm:pt-16 border-t border-white/10 mb-6 sm:mb-8">
+        <Reveal>
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-2" style={{ color: "var(--leaf-bright)" }}>
+            Complete Solar Solution
+          </p>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+            Haier Thermocool + PEC Solar Generator
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
+            Power your business without fuel expenses — deep freezer, PEC solar generator,
+            and matching panels in three ready-to-deploy packages.
+          </p>
+        </Reveal>
+        <Reveal delay={100}>
+          <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+            {bundleBenefits.map((b) => (
+              <li
+                key={b}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-white/80"
+              >
+                <CheckCircle2 size={14} style={{ color: "var(--leaf-bright)" }} className="shrink-0" />
+                {b}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to right, var(--navy), transparent)` }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10"
+          style={{ background: `linear-gradient(to left, var(--navy), transparent)` }} />
+
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-[calc((100vw-1280px)/2+2.5rem)] snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none" }}>
+          {freezerPackages.map((p, i) => (
+            <Reveal key={p.id} delay={i * 50} className="shrink-0">
+              <Tilt className="h-full" max={5}>
+                <article
+                  className="card-3d group flex h-full w-[280px] sm:w-[320px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl snap-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <img
+                      src={p.img}
+                      alt={`${p.label} — ${p.capacity} Haier Thermocool + PEC ${p.generator} solar freezer bundle`}
+                      width={640}
+                      height={800}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-contain p-2 transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                    <span
+                      className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      {p.label}
+                    </span>
+                    <span
+                      className="absolute top-3 right-3 rounded-full px-3 py-1 text-[11px] font-bold tracking-widest uppercase text-white"
+                      style={{ backgroundColor: "var(--leaf)" }}
+                    >
+                      {p.capacity}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5 sm:p-6" style={{ transform: "translateZ(16px)" }}>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "var(--leaf)" }}>
+                      Solar Freezer Bundle
+                    </div>
+                    <h4 className="font-display font-bold text-xl text-[var(--navy)]">
+                      {p.capacity} Deep Freezer
+                    </h4>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                    <ul className="mt-4 space-y-2 text-sm text-foreground/80">
+                      {p.includes.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span
+                            className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                            style={{ backgroundColor: "var(--leaf)" }}
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto pt-5">
+                      <a
+                        href={whatsappUrl(
+                          `Hello PEC, I would like to enquire about ${p.label} (${p.capacity} Solar Freezer Bundle with ${p.generator} generator).`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "var(--leaf)" }}
+                      >
+                        Enquire <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      <div className="container-x mt-10 sm:mt-12 text-center">
         <Link
           to="/services"
           className="inline-flex items-center gap-2 text-sm font-semibold transition-opacity hover:opacity-80"
           style={{ color: "var(--leaf-bright)" }}
         >
-          View all solar generator models <ArrowRight size={15} />
+          View all products & services <ArrowRight size={15} />
         </Link>
       </div>
     </section>
