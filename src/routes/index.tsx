@@ -2102,14 +2102,17 @@ function Process() {
 
 /* ---------------- PROJECTS SHOWCASE ---------------- */
 function ProjectsShowcase() {
-  const filters = ["All", "Residential", "Commercial", "Industrial", "Solar", "Security", "Automation"];
+  const filters = ["All", "Solar", "Security", "Automation", "Access", "Products"];
   const projects = [
-    { title: "Lekki Estate Hybrid Solar", tag: "Residential · Solar", img: solarHomeImg },
-    { title: "Ikeja Factory PV Plant", tag: "Industrial · Solar", img: heroImg },
-    { title: "Abuja Office Smart Building", tag: "Commercial · Automation", img: smartHomeImg },
-    { title: "Lagos Mall Surveillance Grid", tag: "Commercial · Security", img: cctvImg },
-    { title: "Port Harcourt BESS Site", tag: "Industrial · Storage", img: batteryImg },
-    { title: "Kano Inverter Room Upgrade", tag: "Industrial · Power", img: inverterImg },
+    { title: "Rooftop Solar Installation", tag: "Solar · Installation", img: installRooftopCrew },
+    { title: "Hybrid Inverter & Battery Bank", tag: "Solar · Storage", img: installInverterBank },
+    { title: "Smart Home Automation", tag: "Automation · Smart Living", img: automationSmartHome },
+    { title: "CCTV Camera Installation", tag: "Security · Surveillance", img: cctvOutdoorHd },
+    { title: "Access Control Systems", tag: "Access · Entry Management", img: accessControlSmartSecurity },
+    { title: "Smart Door Lock Systems", tag: "Access · Smart Locks", img: doorLockCamera },
+    { title: "Gate Automation", tag: "Automation · Secure Entry", img: gateSmartGate },
+    { title: "Electric Fence Systems", tag: "Security · Perimeter", img: fencePerimeterWall },
+    { title: "Solar Freezer Business Bundle", tag: "Products · Solar Appliance", img: freezerPkg3 },
   ];
   return (
     <section className="py-16 lg:py-24 bg-[var(--surface)]">
