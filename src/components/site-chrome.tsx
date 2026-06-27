@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MapPin, Phone, Mail, Send } from "lucide-react";
-import pecEmblem from "@/assets/pec-emblem.png";
+import pecLogo from "@/assets/pec-logo-new.png";
 import {
   PEC_EMAIL,
   PEC_FACEBOOK_URL,
@@ -48,20 +48,12 @@ export function SiteNav({ transparentOnTop = true }: { transparentOnTop?: boolea
       style={solid ? { backgroundColor: "oklch(0.18 0.045 258 / 0.97)" } : undefined}
     >
       <div className="container-x flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center gap-3 min-w-0">
+        <Link to="/" className="flex items-center min-w-0">
           <img
-            src={pecEmblem}
+            src={pecLogo}
             alt="Prodigy Exclusive Company"
-            className="h-10 sm:h-12 w-auto shrink-0"
+            className="h-12 sm:h-14 w-auto shrink-0 object-contain"
           />
-          <span className="leading-tight min-w-0">
-            <span className="block font-display font-bold tracking-wide text-sm sm:text-base truncate text-white">
-              Prodigy Exclusive
-            </span>
-            <span className="hidden sm:block text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
-              Driven by Innovation, Defined by Excellence
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
@@ -171,16 +163,10 @@ export function SiteFooter() {
           <div className="lg:col-span-2 max-w-sm">
             <div className="flex items-center gap-3 mb-5">
               <img
-                src={pecEmblem}
+                src={pecLogo}
                 alt="Prodigy Exclusive Company"
-                className="h-12 w-auto shrink-0"
+                className="h-20 w-auto shrink-0 object-contain"
               />
-              <span className="leading-tight">
-                <span className="block font-display font-bold text-white text-base">Prodigy Exclusive</span>
-                <span className="hidden sm:block text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
-                  Driven by Innovation, Defined by Excellence
-                </span>
-              </span>
             </div>
           <p className="text-sm leading-relaxed">
             Prodigy Exclusive Company (PEC) is a leading renewable energy and technology solutions
